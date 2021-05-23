@@ -1,7 +1,7 @@
 # ClientBootcamp
 
 <h1><BOOTCAMP DEVSUPERIOR/h1>
-<h4>This project was made for the Bootcamp of DevSuperior. Client Porject with SpringBoot + H2 Database</h4>
+<h4>This project was made for the Bootcamp of DevSuperior. Client Project with SpringBoot + H2 Database</h4>
 
 <div>
 
