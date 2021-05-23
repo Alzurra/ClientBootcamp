@@ -26,7 +26,7 @@ public class Client implements Serializable {
 	private Integer children;
 
 	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
-	private Instant birthdate;
+	private Instant birthDate;
 
 	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
 	private Instant createdAt;
@@ -43,7 +43,7 @@ public class Client implements Serializable {
 		this.cpf = cpf;
 		this.income = income;
 		this.children = children;
-		this.birthdate = birthDate;
+		this.birthDate = birthDate;
 	}
 
 	public Long getId() {
@@ -87,11 +87,11 @@ public class Client implements Serializable {
 	}
 
 	public Instant getBirthDate() {
-		return birthdate;
+		return birthDate;
 	}
 
 	public void setBirthDate(Instant birthDate) {
-		this.birthdate = birthDate;
+		this.birthDate = birthDate;
 	}
 
 	public Instant getCreatedAt() {
