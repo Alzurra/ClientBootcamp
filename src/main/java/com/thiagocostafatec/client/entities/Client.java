@@ -20,7 +20,11 @@ public class Client implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+
+	@Column(length = 30)
 	private String name;
+
+	@Column(length = 15)
 	private String cpf;
 	private Double income;
 	private Integer children;

@@ -33,14 +33,14 @@ public class ClientService {
 	@Transactional(readOnly = true)
 	public ClientDTO findById(Long id) {
 		Optional<Client> obj = repository.findById(id);
-		Client entity = obj.orElseThrow(() -> new ResourceNotFoundException("Entity not Found"));
+		Client entity = obj.orElseThrow(() -> new ResourceNotFoundException("Entity not found"));
 		return new ClientDTO(entity);
 	}
 
 	@Transactional
 	public ClientDTO insert(ClientDTO dto) {
 		Client entity = new Client();
-		entity.setName(dto.getName());
+		copyDtoToEntity(dto, entity);
 		entity = repository.save(entity);
 		return new ClientDTO(entity);
 	}
@@ -49,11 +49,7 @@ public class ClientService {
 	public ClientDTO update(Long id, ClientDTO dto) {
 		try {
 			Client entity = repository.getOne(id);
-			entity.setName(dto.getName());
-			entity.setCpf(dto.getCpf());
-			entity.setIncome(dto.getIncome());
-			entity.setBirthDate(dto.getBirthDate());
-			entity.setChildren(dto.getChildren());
+			copyDtoToEntity(dto, entity);
 			entity = repository.save(entity);
 			return new ClientDTO(entity);
 		} catch (EntityNotFoundException e) {
@@ -64,11 +60,18 @@ public class ClientService {
 	public void delete(Long id) {
 		try {
 			repository.deleteById(id);
-
 		} catch (EmptyResultDataAccessException e) {
-			throw new ResourceNotFoundException("Id not found " + id);
+			throw new ResourceNotFoundException("Id not found: " + id);
 		} catch (DataIntegrityViolationException e) {
-			throw new DataBaseException("Integrity Violation!");
+			throw new DataBaseException("Integrity violation");
 		}
+	}
+
+	private void copyDtoToEntity(ClientDTO dto, Client entity) {
+		entity.setName(dto.getName());
+		entity.setCpf(dto.getCpf());
+		entity.setIncome(dto.getIncome());
+		entity.setChildren(dto.getChildren());
+		entity.setBirthDate(dto.getBirthDate());
 	}
 }
