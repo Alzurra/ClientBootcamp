@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.thiagocostafatec.client.dto.ClientDTO;
-import com.thiagocostafatec.client.entites.Client;
+import com.thiagocostafatec.client.entities.Client;
 import com.thiagocostafatec.client.repositories.ClientRepository;
 import com.thiagocostafatec.client.services.exceptions.DataBaseException;
 import com.thiagocostafatec.client.services.exceptions.ResourceNotFoundException;

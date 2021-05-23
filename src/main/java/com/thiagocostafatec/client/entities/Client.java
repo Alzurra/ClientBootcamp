@@ -1,4 +1,4 @@
-package com.thiagocostafatec.client.entites;
+package com.thiagocostafatec.client.entities;
 
 import java.io.Serializable;
 import java.time.Instant;
